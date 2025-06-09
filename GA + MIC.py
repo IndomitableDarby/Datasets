@@ -144,7 +144,7 @@ def process_dataset(name, df, label_col):
     print(f"Runtime: {cost} seconds")
 
 # === Load and Evaluate ===
-df_boston = pd.read_csv("/content/sample_data/california_housing_test.csv")
+df_boston = pd.read_csv("/content/sample_data/BostonHousing.csv")
 process_dataset("Boston Housing", df_boston, label_col="median_house_value")
 
 df_parkinsons = pd.read_csv("/content/parkinsons_updrs.data")
