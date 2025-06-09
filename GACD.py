@@ -66,7 +66,7 @@ def run_lgb(X_data, y_data):
     }
 
 def process_dataset(name, df, label_col):
-    print(f"\n========== 🚀 GACD Results for {name} Dataset ==========")
+    print(f"\n========== GACD Results for {name} Dataset ==========")
 
     df_numeric = df.select_dtypes(include=[np.number]).dropna()
 
@@ -94,7 +94,7 @@ def process_dataset(name, df, label_col):
     print(f"Average Convergence Rate: {full_results['avg_convergence_percent']}%")
 
     # Scalability Evaluation
-    print("\n📊 Scalability Test Results:")
+    print("\n Scalability Test Results:")
     print("-------------------------------------------------------------------")
     print(f"{'Data %':<10}{'Samples':<10}{'Runtime (s)':<15}{'Accuracy (%)':<17}{'Conv. Rate (%)'}")
     print("-------------------------------------------------------------------")
