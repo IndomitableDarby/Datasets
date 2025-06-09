@@ -108,14 +108,12 @@ def process_dataset(name, df, label_col):
         print(f"{int(frac*100):<10}{n_samples:<10}{res['runtime_sec']:<15}{res['accuracy_percent']:<17}{res['avg_convergence_percent']}")
         
 # === Load Boston Housing Dataset ===
-df_boston = pd.read_csv("/content/sample_data/california_housing_test.csv")
+df_boston = pd.read_csv("/content/sample_data/BostonHousing.csv")
 process_dataset("Boston Housing", df_boston, label_col="medv")
 
 # === Load Parkinson’s Dataset ===
 df_parkinsons = pd.read_csv("/content/parkinsons_updrs.data")
 process_dataset("Parkinson's", df_parkinsons, label_col="total_UPDRS")
-
-
 
 # === Load California Housing Dataset ===
 df_boston = pd.read_csv("/content/sample_data/california_housing_test.csv")
