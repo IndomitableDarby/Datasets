@@ -12,7 +12,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
 from sklearn.preprocessing import StandardScaler
 
-# --- Enhanced MIC Implementation ---
+# ---  MIC Implementation ---
 def mic(X, Y, alpha=0.6, c=15):
     """Maximal Information Coefficient calculation"""
     X = (X - np.min(X)) / np.ptp(X)
@@ -213,12 +213,12 @@ def process_dataset_enhanced(name, df, label_col):
     df_numeric = df.select_dtypes(include=[np.number]).dropna()
     if label_col not in df_numeric.columns:
         label_col = df_numeric.columns[-1]
-        print(f"⚠  Using '{label_col}' as target variable")
+        print(f"  Using '{label_col}' as target variable")
 
     X = df_numeric.drop(columns=[label_col])
     y = df_numeric[label_col].values
 
-    print(f"   Dataset Info:")
+    print(f" Dataset Info:")
     print(f"   • Samples: {len(X)}")
     print(f"   • Features: {len(X.columns)}")
     print(f"   • Target: {label_col}")
@@ -269,7 +269,7 @@ def process_dataset_enhanced(name, df, label_col):
 # --- Generate Sample Data if Files Don't Exist ---
 def generate_sample_data(name, n_samples=1000, n_features=15):
     """Generate sample data for testing"""
-    print(f"🎲 Generating sample data for {name}")
+    print(f" Generating sample data for {name}")
     np.random.seed(42)
 
     # Create feature matrix
@@ -290,7 +290,7 @@ def generate_sample_data(name, n_samples=1000, n_features=15):
 
 # === MAIN EXECUTION ===
 if _name_ == "_main_":
-    print("🧬 ENHANCED GA+MIC FEATURE SELECTION")
+    print(" ENHANCED GA+MIC FEATURE SELECTION")
     print("=" * 50)
 
     # Dataset configurations
@@ -308,10 +308,10 @@ if _name_ == "_main_":
             df = pd.read_csv(filepath)
             print(f"Loaded {name} dataset from {filepath}")
         except FileNotFoundError:
-            print(f"⚠  {filepath} not found, generating sample data...")
+            print(f" {filepath} not found, generating sample data...")
             df = generate_sample_data(name, n_samples=800, n_features=12)
         except Exception as e:
-            print(f"Error loading {name}: {str(e)}")
+            print(f" Error loading {name}: {str(e)}")
             print(" Generating sample data instead...")
             df = generate_sample_data(name, n_samples=800, n_features=12)
             target_col = "target"
@@ -325,7 +325,7 @@ if _name_ == "_main_":
 
     # Final summary
     print(f"\n{'='*80}")
-    print(f"OVERALL SUMMARY - ALL DATASETS")
+    print(f" OVERALL SUMMARY - ALL DATASETS")
     print(f"{'='*80}")
 
     for name, result in results_summary:
@@ -335,3 +335,4 @@ if _name_ == "_main_":
         print(f"   Computational Cost (seconds):     {result['computational_cost']:.2f}")
         print(f"   Average Convergence Rate:         {result['convergence_rate']:.6f}")
 
+    print(f"\n Done")
